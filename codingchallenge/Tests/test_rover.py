@@ -2,11 +2,12 @@
 This is a sample test docstring
 """
 import unittest
+import random as r
 
-from exampleproject1.hello import hello
+from marsrovers import rover
 
 
-class TestHello(unittest.TestCase):
+class Test(unittest.TestCase):
     """
     Hello test class.
     """
@@ -19,13 +20,12 @@ class TestHello(unittest.TestCase):
         """ Clean up test suite - no-op. """
         pass
 
-    def test_valid(self):
+    def test_size(self, ):
         """ Test for equal. """
-        self.assertEqual("Hello World", hello("Hello World"))
-
-    def test_invalid(self):
-        """ Test for not equal. """
-        self.assertNotEqual("", hello("test"))
+        x, y = r.randint(2, 100), r.randint(2, 100)
+        rov = rover.Rover()
+        rov.set_rover(x, y, "N")
+        self.assertEqual(rov.get_direction(), "N")
 
 
 if __name__ == '__main__':
