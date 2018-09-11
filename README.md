@@ -6,14 +6,15 @@
 ```powershell
 cd .\boring-jennings\
 ```
+## Dev stuff
 
-### Create new Python Virtual environment (So you don't clutter up your base installation...)
+##### Create new Python Virtual environment (So you don't clutter up your base installation...)
 ```powershell
 # [env] <- the name of the environment
 python -m venv env 
 ```
 
-### Activate your virtual environment
+##### Activate your virtual environment
 ```powershell
 # [env] <- the name of the environment
 
@@ -25,11 +26,21 @@ python -m venv env
 # You may need to powershell execution policy for above... (do some reading about execution policies)
 Set-ExecutionPolicy Unrestricted
 ```
-### Install dependencies
+##### Install dependencies
 ```powershell
 # upgrade pip (Optional)
 python -m pip install --upgrade pip
 
 # install
 pip install -r requirements.txt
+```
+
+##### setting up project for unit testing
+
+```powershell
+# navigate to project's folder
+cd codingchallenge
+
+# run setup.py
+python setup.py develop
 ```

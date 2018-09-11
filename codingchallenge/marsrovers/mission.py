@@ -20,17 +20,17 @@ class Mission():
         self.check_mission(self.rover.x, self.rover.y)
 
     def get_mission_state(self):
-        return (self.rover.get_position())
+        return (self.rover.get_rover())
 
     def print_mission_state(self):
-        print(' '.join(map(str, self.rover.get_position())))
+        print(' '.join(map(str, self.rover.get_rover())))
 
     def check_mission_instructions(self):
         for instruction in list(self.instructions):
             try:
                 assert hasattr(inst, instruction)
             except:
-                raise Exception("Invalid instuction: %s" % (instruction))
+                raise Exception("Invalid instuction:%s" % (instruction))
 
     def check_mission(self, x, y):
         try:
@@ -39,7 +39,6 @@ class Mission():
         except:
             raise Exception("Invalid coordinates x:%d y%d"
                             % (x, y))
-
         return True
 
     def move_rover(self):
@@ -58,20 +57,3 @@ class Mission():
                 self.rover.turn_right()
             if(instruction == inst["Move"].value):
                 self.move_rover()
-
-
-mars = g.Grid()
-mars.set_size(5, 5)
-rover1 = r.Rover()
-rover1.set_rover(1, 2, "N")
-instructions1 = "LMLMLMLMM"
-mission1 = Mission()
-mission1.set_mission(mars, rover1, instructions1)
-mission1.do_mission()
-
-rover2 = r.Rover()
-rover2.set_rover(3, 3, "E")
-instructions2 = "MMRMMRMRRM"
-mission2 = Mission()
-mission2.set_mission(mars, rover2, instructions2)
-mission2.do_mission()
