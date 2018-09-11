@@ -51,8 +51,3 @@ class Rover():
 
     def __repr__(self):
         return ' '.join(map(str, self.get_rover()))
-
-
-r1 = Rover()
-r1.set_rover(10, 9, "N")
-print(r1)
